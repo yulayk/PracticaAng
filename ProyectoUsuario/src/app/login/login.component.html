@@ -1,1 +1,23 @@
-<p>login works!</p>
+
+<form #f="ngForm" class="form-inline" (ngSubmit)="login(f.value)" style="height: 600px; width: 100%;  align-content: center; text-align: center;">
+
+    <div style="width: 30%;margin-left: 30%; margin-top:20% ;border:solid;padding: 10px 10px 10px 10px;">
+        <div class="input-group" style="padding-bottom: 2px;" >
+            <div class="input-group-prepend">
+              <span class="input-group-text"  style="width:100px ;">Email   </span>
+            </div>
+            <input type="text" style="width:200px ;" class="form-control" placeholder="Introduzca su email" aria-label="Username" aria-describedby="basic-addon1"  name="email" ngModel>
+        </div>
+        <div class="input-group" >
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width:100px ;">Password</span>
+              </div>
+              <input type="text" style="width:200px ;" class="form-control" placeholder="Introduzca su password" aria-label="Username" aria-describedby="basic-addon1"  name="password" ngModel>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
