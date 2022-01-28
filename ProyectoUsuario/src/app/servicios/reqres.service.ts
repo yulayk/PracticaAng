@@ -9,15 +9,19 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ReqresService {
-  public listaUsuarios: Array<Usuario> = [];
-  public usuarios: any;
-  constructor(private http: HttpClient) { }
+  listaUsuarios: Array<Usuario> = [];
+  usuarios: any;
+  result: any;
+  resultado:any;
+  constructor(private http: HttpClient) {
+    
+   }
 
   getUsuarios(){
         let url = `${CONFIG.HostReqres}${CONFIG.URL.GET_USUARIOS}`;
 
     this.http.get(url).subscribe((data:any) => {
-      this.listaUsuarios = data.data;
+      return this.listaUsuarios = data.data;
       console.log(this.listaUsuarios);
     });
     return this.listaUsuarios;
@@ -45,20 +49,50 @@ export class ReqresService {
 
     return true;
   }
-  registroUsuario(email:string, password:string) 
-   {
-    let url = `${CONFIG.HostReqres}${CONFIG.URL.SAVE_USER}`;
+
+  login(email:string, password:string){
+
+    let url = `${CONFIG.HostReqres}${CONFIG.URL.LOGIN}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    const headers = { 'content-type': 'application/json'}  
-    const body= '{"email":"'+email+'","password":"'+password +'"}';
+    //const headers = { 'content-type': 'application/json'}  
+    const body= JSON.parse('{"email":"'+email+'","password":"'+password +'"}');
  
- //   const body='{"name":"'user.nombre'","job":"leader"}'://JSON.stringify(user);
+
     
     console.log(body);
-    return this.http.post(url, body, httpOptions);
+    this.http.post(url, body, httpOptions).subscribe((data:any) => {
+      this.result = data.token;
+      this.resultado = true;
+      alert(this.result);
+      console.log(this.result);
+     
+    });
+    return this.resultado;
+  }
+
+  registroUsuario(email:string, password:string) 
+   {
+    let url = `${CONFIG.HostReqres}${CONFIG.URL.REGISTER_USER}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    //const headers = { 'content-type': 'application/json'}  
+    const body= JSON.parse('{"email":"'+email+'","password":"'+password +'"}');
+ 
+
+    
+    console.log(body);
+    this.http.post(url, body, httpOptions).subscribe((data:any) => {
+      this.result = data.token;
+      alert(this.result);
+      console.log(this.result);
+    });
+    return this.result;
    }
 }

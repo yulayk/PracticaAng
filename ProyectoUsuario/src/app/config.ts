@@ -6,5 +6,6 @@ export const CONFIG = {
         GET_USUARIOS: "users",
         SAVE_USER: "usuarios",
         REGISTER_USER: "register",
+        LOGIN: "login",
     }
 }

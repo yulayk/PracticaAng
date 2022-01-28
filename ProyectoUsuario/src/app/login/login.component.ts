@@ -19,16 +19,24 @@ export class LoginComponent implements OnInit {
 
 login(f:any)
 {
+ 
   if(f.email == "" || f.password == "")
   {
     alert("Los campos email y el password son obligatorios.")
   }
   else
   {
-    //this.servicioReq.loginUsuario(String(f.email), String(f.password));
-    //si devuelve token accede a la home, en caso contrario se le mostraría un mensaje
-    this.router.navigate(["/Home"]);
 
+    let resultado:Boolean = this.servicioReq.login(String(f.email), String(f.password));
+    if(resultado)
+    {
+      //si devuelve token accede a la home, en caso contrario se le mostraría un mensaje
+      this.router.navigate(["/Home"]);
+    }
+    else
+    {
+      alert("El email o el password no son correctas!.");
+    }
   }
 }
 registrar(f:any){
@@ -36,9 +44,9 @@ registrar(f:any){
   { alert("Los campos email y el password son obligatorios para poder registrarse.") }
   else
   {
-    //let result = this.servicioReq.registroUsuario(String(f.email), String(f.password));
-    //let mensaje = JSON.stringify(result);
-    //alert(mensaje);
+    let result = this.servicioReq.registroUsuario(String(f.email), String(f.password));
+    let mensaje = JSON.stringify(result);
+    alert(mensaje);
   }
 }
 
