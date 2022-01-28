@@ -25,31 +25,24 @@ login(f:any)
   }
   else
   {
-
-    //llamada al servicio
-   // if(this.servicioReq.getUsuarios().find(x=> x.email == f.email && x.password == f.password) != null)
-    //{
-
-    //}
+    //this.servicioReq.loginUsuario(String(f.email), String(f.password));
+    //si devuelve token accede a la home, en caso contrario se le mostraría un mensaje
     this.router.navigate(["/Home"]);
 
   }
-
-
 }
 registrar(f:any){
   if(f.email == "" || f.password == "")
-  {
-    alert("Los campos email y el password son obligatorios para poder registrarse.")
-  }
+  { alert("Los campos email y el password son obligatorios para poder registrarse.") }
   else
   {
-    
-  alert("Usuario registrado, por favor, introduzca el email y el password para acceder.")  
+    //let result = this.servicioReq.registroUsuario(String(f.email), String(f.password));
+    //let mensaje = JSON.stringify(result);
+    //alert(mensaje);
   }
-  
 }
-  ngOnInit(): void {
+
+ngOnInit(): void {
   
   }
 
