@@ -43,6 +43,7 @@ export class UsuarioEdicionComponent  {
     }
     else
     {
+      this.usuario.id = 0;
       this.titulo = "Formulario de nuevo usuario";
     }
   
@@ -50,19 +51,28 @@ export class UsuarioEdicionComponent  {
 
   onSubmit(f:any){
   
-  //  this.usuarios =this.servicioReqres.getUsuarios();
-  
-
     let usuario = new Usuario();
-    usuario.id = 20;
+    usuario.id = f.id;
     usuario.email = f.email;
     usuario.password = f.password;
     usuario.first_name = f.nombre;
     usuario.last_name = f.apellido;
     usuario.avatar = f.avatar;
-    let result = this.servicioReqres.crearUsuario(usuario);
-    var hh = JSON.stringify(result);
-    alert(hh);
-    //alert("usuario guardado correctamente!");
+  
+    //En el caso de que sea cero procederá de un usuario nuevo
+    if(f.id == 0)
+    {
+      //ADD
+      let result = this.servicioReqres.crearUsuario(usuario);
+      var hh = JSON.stringify(result);
+      alert(hh);
+    }
+    else
+    {
+      //UPDATE
+      //let result = this.servicioReqres.actualizarUsuario(usuario);
+      //var hh = JSON.stringify(result);
+      //alert(hh);
+    }
   }
 }
