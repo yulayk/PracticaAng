@@ -3,8 +3,8 @@ export const CONFIG = {
     HOST: "https://localhost:4200/api/",
 
     URL: {
-    
         GET_USUARIOS: "users",
         SAVE_USER: "usuarios",
+        REGISTER_USER: "register"
     }
 }
