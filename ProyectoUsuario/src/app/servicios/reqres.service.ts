@@ -24,6 +24,22 @@ export class ReqresService {
 
   }
 
+  crearUsuario(user:Usuario){
+    let url = `${CONFIG.HostReqres}${CONFIG.URL.SAVE_USER}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    const headers = { 'content-type': 'application/json'}  
+    const body= '{"name":"morpheus","job":"leader"}';
+ 
+ //   const body='{"name":"'user.nombre'","job":"leader"}'://JSON.stringify(user);
+    
+    console.log(body);
+    return this.http.post(url, body, httpOptions);
+  }
+
   eliminarUsuario(id:any):Boolean
   {
     return true;
