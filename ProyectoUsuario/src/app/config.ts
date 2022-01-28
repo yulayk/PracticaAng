@@ -5,6 +5,6 @@ export const CONFIG = {
     URL: {
         GET_USUARIOS: "users",
         SAVE_USER: "usuarios",
-        REGISTER_USER: "register"
+        REGISTER_USER: "register",
     }
 }
