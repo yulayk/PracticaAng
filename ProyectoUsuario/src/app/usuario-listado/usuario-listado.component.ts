@@ -30,7 +30,7 @@ export class UsuarioListadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usuarios = this.servicioReqres.getUsuarios();
+    //this.usuarios = this.servicioReqres.getUsuarios();
   }
 
 }
