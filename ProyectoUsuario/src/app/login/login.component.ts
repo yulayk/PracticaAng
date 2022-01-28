@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReqresService } from '../servicios/reqres.service';
-import {ActivatedRoute, Router} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router';
+import { Usuario } from '../clases/usuario';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ReqresService]
 })
 export class LoginComponent implements OnInit {
-
+  //public usuarios:Usuario[] = []
   constructor(private servicioReq:ReqresService,private router: Router) { 
 
 
@@ -22,7 +25,7 @@ login(f:any)
   }
   else
   {
-    this.servicioReq.getUsuarios()
+
     //llamada al servicio
    // if(this.servicioReq.getUsuarios().find(x=> x.email == f.email && x.password == f.password) != null)
     //{
@@ -47,6 +50,7 @@ registrar(f:any){
   
 }
   ngOnInit(): void {
+  
   }
 
 

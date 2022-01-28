@@ -8,9 +8,11 @@ import {ReqresService } from '../servicios/reqres.service'
   styleUrls: ['./usuario-listado.component.css']
 })
 export class UsuarioListadoComponent implements OnInit {
-  //usuarios:Array<Usuario> = [];
-  usuarios:any;
-  constructor( private servicioReqres:ReqresService) {
+  
+  usuarios:Array<Usuario> = [];
+ 
+  constructor(private servicioReqres:ReqresService) {
+   
     this.usuarios = servicioReqres.getUsuarios();
 
    }
@@ -28,6 +30,7 @@ export class UsuarioListadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.usuarios = this.servicioReqres.getUsuarios();
   }
 
 }

@@ -1,3 +1,4 @@
+
 <div class="my-gray container">
     <!--cabecera-->
     <div class="row">
@@ -10,45 +11,46 @@
       <!--contenido-->
       <div class="col-12" >
         <div class="content">
+           
             <form #f="ngForm" class="form-inline" style="padding: 3% 0px 0px 1% ;" (ngSubmit)="onSubmit(f.value)">
         
                     <div ><p class="titulo">{{titulo}}</p></div>
-                    <div class="input-group" style="width: 400px;padding-bottom: 5px;">
+                    <div class="input-group" style="width: 400px;padding-bottom: 5px;" *ngIf="mostrar">
                     <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Id. </span>
                     </div>
-                    <input type="text" class="form-control" name="id" ngModel>
+                    <input type="number" class="form-control"  [(ngModel)]="usuario.id" name="this.Usuario.id" ngModel>
                     </div>
                     
                     <div class="input-group" style="width: 400px;padding-bottom: 5px;">
                         <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Email</span>
                         </div>
-                        <input type="email" class="form-control" placeholder="Introduzca un email"  name="email" ngModel>
+                        <input type="email" class="form-control" placeholder="Introduzca un email" [(ngModel)]="usuario.email" name="email" ngModel>
                     </div>
                     <div class="input-group" style="width: 400px;padding-bottom: 5px;">
                         <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Password</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Introduzca un password"   name="password" ngModel>
+                        <input type="text" class="form-control" placeholder="Introduzca un password" [(ngModel)]="usuario.password"  name="password" ngModel>
                     </div>
                     <div class="input-group" style="width: 400px;padding-bottom: 5px;">
                         <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Nombre</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Introduzca un nombre"  name="nombre" ngModel>
+                        <input type="text" class="form-control" placeholder="Introduzca un nombre" [(ngModel)]="usuario.first_name" name="nombre" ngModel>
                     </div>
                     <div class="input-group" style="width: 400px;padding-bottom: 5px;">
                         <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Apellido</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Introduzca un apellido"  name="apellido" ngModel>
+                        <input type="text" class="form-control" placeholder="Introduzca un apellido" [(ngModel)]="usuario.last_name" name="apellido" ngModel>
                     </div>
                     <div class="input-group" style="width: 400px;padding-bottom: 5px;">
                         <div class="input-group-prepend">
                         <span class="input-group-text" style="width:100px ;">Avatar</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Introduzca una url para el avatar" name="avatar" ngModel>
+                        <input type="text" class="form-control"  placeholder="Introduzca una url para el avatar" [(ngModel)]="usuario.avatar" name="avatar" ngModel>
                     </div>
         <br/>
                 <button type="submit" class="btn btn-primary">Guardar</button>
