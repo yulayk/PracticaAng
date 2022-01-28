@@ -17,21 +17,19 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>Acciones</th>
                  </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of usuarios">
                     <th scope="row">{{ user.id }}</th>
-                    <td>{{ user.nombre }}</td>
-                    <td>{{ user.apellido }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.password }}</td>
                     <td><button type="button" class="btn btn-success" [routerLink]="['/UsuarioEdicion', user.id]">Modificar</button>&nbsp;&nbsp;<button class="btn btn-danger" (click)="eliminarUsuario(user.id)">Eliminar</button></td>
                 </tr>
                 <tr>
-                    <td colspan="6" style="width:100%;text-align: right;"><button type="button" class="btn btn-primary" [routerLink]="['/UsuarioEdicion', '']">Nuevo Usuario</button></td>
+                    <td colspan="5" style="width:100%;text-align: right;"><button type="button" class="btn btn-primary" [routerLink]="['/UsuarioEdicion', '']">Nuevo Usuario</button></td>
                 </tr>
             </tbody>
             </table>  

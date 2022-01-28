@@ -1,7 +1,9 @@
 
 <form #f="ngForm" class="form-inline" (ngSubmit)="login(f.value)" style="height: 600px; width: 100%;  align-content: center; text-align: center;">
 
-    <div style="width: 30%;margin-left: 30%; margin-top:20% ;border:solid;padding: 10px 10px 10px 10px;">
+    <div style="width: 30%;margin-left: 30%; margin-top:18% ;border:solid;padding: 10px 10px 10px 10px;">
+        <h2>Proyecto Curso Angular</h2>
+        <div style="height: 3px;"></div>
         <div class="input-group" style="padding-bottom: 2px;" >
             <div class="input-group-prepend">
               <span class="input-group-text"  style="width:100px ;">Email   </span>
@@ -14,6 +16,7 @@
               </div>
               <input type="text" style="width:200px ;" class="form-control" placeholder="Introduzca su password" aria-label="Username" aria-describedby="basic-addon1"  name="password" ngModel>
         </div>
+        <div style="text-align: right"><a href="..." (click)="registrar(f.value)">Registrar cuenta</a></div>
         <br/>
         <button type="submit" class="btn btn-primary">Login</button>
     </div>

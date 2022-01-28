@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router'
 export class UsuarioEdicionComponent implements OnInit {
   titulo:string;
   listaUsuarios: Array<Usuario> = []; 
+  usuarios:any;
   constructor(private servicioReqres:ReqresService,private router: Router) { 
 this.titulo = "Formulario de nuevo usuario";
 
@@ -20,15 +21,16 @@ this.titulo = "Formulario de nuevo usuario";
   }
   onSubmit(f:any){
     alert("entra");
-    this.listaUsuarios = this.servicioReqres.getUsuarios();
+    this.usuarios =this.servicioReqres.getUsuarios();
+    //this.listaUsuarios = this.servicioReqres.getUsuarios();
     if(this.listaUsuarios.find(x=> x.email == f.email) == null)
     {
       let usuario = new Usuario();
       usuario.id = f.id;
       usuario.email = f.email;
       usuario.password = f.password;
-      usuario.nombre = f.nombre;
-      usuario.apellido = f.apellido;
+      usuario.first_name = f.nombre;
+      usuario.last_name = f.apellido;
       usuario.avatar = f.avatar;
       //this.servicioReqres.crearUsuario(usuario);
       this.router.navigate(["/UsuariosListado"]);
